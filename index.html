@@ -141,15 +141,25 @@
   }
 
   /* bottom nav */
-  .tabbar{
+    .tabbar{
     position:fixed;
     bottom:0; left:0; right:0;
-    background:var(--card);
+    background:#f0e4e4;
     border-top:1px solid var(--border);
     display:flex;
     justify-content:space-around;
     padding:10px 0 calc(10px + env(safe-area-inset-bottom));
     box-shadow:0 -6px 18px rgba(108,79,160,0.06);
+  }
+  .tabbar::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:10px;
+    bottom:10px;
+    width:1px;
+    background:#5e0000;
+    opacity:0.6;
   }
    .tab{
     display:flex;
