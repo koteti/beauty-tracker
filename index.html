@@ -578,7 +578,7 @@
     document.getElementById('sheetDate').textContent = `${d} ${MONTHS[m-1].toLowerCase()}`;
     const list = document.getElementById('optionsList');
     list.innerHTML = '';
-    ACTIONS.forEach(a => {
+    ACTIONS.filter(a => !a.hidden).forEach(a => {
       const row = document.createElement('div');
       row.className = 'option-row' + (a.group === 'green' ? ' group-green' : '') + (activeSelection.has(a.id) ? ' active' : '');
       row.innerHTML = `
@@ -661,7 +661,7 @@
     const todayD = new Date(); todayD.setHours(0,0,0,0);
     const MONTHS_GEN = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
 
-    ACTIONS.forEach(a => {
+    ACTIONS.filter(a => !a.hidden).forEach(a => {
       let lastKey = null;
       Object.keys(entries).sort().forEach(k => {
         if ((entries[k] || []).includes(a.id)) lastKey = k;
